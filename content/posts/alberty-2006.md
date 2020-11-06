@@ -11,11 +11,14 @@ original: true
 description: "Relations between biochemical thermodynamics and biochemical kinetics"
 ---
 
+[![hackmd-github-sync-badge](https://hackmd.io/5CNjgRFdStW3jg5iv6pjhQ/badge)](https://hackmd.io/5CNjgRFdStW3jg5iv6pjhQ)
+
+
 [Sciwheel](https://sciwheel.com/work/#/items/5673496). [Article](https://www.sciencedirect.com/science/article/pii/S0301462206001839?via%3Dihub)[^Alberty2006]
 
 <!--more-->
 
-## Intro
+## Introduction 
 
 * Close connection between the biochemical thermodynamics and biochemical kinetics of an enzyme-catalyzed reaction.
 
