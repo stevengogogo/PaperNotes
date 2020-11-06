@@ -14,7 +14,7 @@ description: "Computational modeling of the photon transport, tissue heating, an
 Article[^Bhattacharya2019]
 
 <!--more-->
-
+My name is steven
 ## Goal is long way to go
 Develop a head model for near-infrared (NIR) absorption and scattering with thermal effects to derive the dosage cytochrome c oxidase (CCO) receives for evaluation of photomodulation and photothermal neurostimulation.
 
