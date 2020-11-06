@@ -1,0 +1,38 @@
+<!doctype html><html lang=en><meta charset=utf-8><meta name=generator content="Hugo 0.78.1"><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name=color-scheme content="light dark"><meta name=supported-color-schemes content="light dark"><title>Modeling of enzyme kinetics: a summary&nbsp;&ndash;&nbsp;Papers</title><link rel=stylesheet href=/stevengogogo/PaperNotes/css/core.min.0e6154f1fe5441faaa4f418ca1a607b9f3edbad43b1ab8782737ee279ca2c5a48c8dbe23af3340af50c91a2558bc2b55.css integrity=sha384-DmFU8f5UQfqqT0GMoaYHufPtutQ7Grh4JzfuJ5yixaSMjb4jrzNAr1DJGiVYvCtV><meta name=twitter:card content="summary"><meta name=twitter:title content="Modeling of enzyme kinetics: a summary"><body><section id=header><div class="header wrap"><span class="header left-side"><a class="site home" href=/stevengogogo/PaperNotes/><span class="site name">Papers</span></a></span>
+<span class="header right-side"><div class="nav wrap"><nav class=nav><a class="nav item" href=/stevengogogo/PaperNotes/categories/>Categories</a><a class="nav item" href=/stevengogogo/PaperNotes/tags/>Tags</a></nav></div></span></div><div class="site slogan"><span class=title>Collection of papers I read</span></div></section><section id=content><div class=article-container><section class="article header"><h1 class="article title">Modeling of enzyme kinetics: a summary</h1><p class="article date">2020-10-23</p></section><article class="article markdown-body"><h2 id=basic-principles>Basic principles</h2><p>For modelling enzyme catalytic cycle</p><ul><li>Structual and stiochiometric data<ul><li>Rate equations of elementary reactions</li><li>Reaction graph (cycle) of enzyme stages</li></ul></li><li>Reduction of rate equations<ul><li>Law of mass equation<code>[LawofMass]</code></li><li>Quasi-equilibrium (slow-fast kinetics)</li><li>King-Altman method<code>[King1956][Qi2009]</code></li><li>Py-substitution<code>[Loriaux2013]</code></li></ul></li><li>Satisfies available experimental data<ul><li>Literature of kinetic constants (Km, Ki, Keq, free energy)</li><li>Databases: BRENDA<code>[BRENDA]</code></li><li>Experiments of both V0 and time series</li></ul></li><li>Dependence of substrate, product, pH, and temperature</li></ul><h2 id=examples>Examples</h2><p>Slide Player <a href=https://slideplayer.com/slide/6341522/ target=_blank>example</a></p><p>Tilde (~) means specific concentrations ($x / K_x$)</p><h3 id=random-bi-bi>Random Bi-Bi</h3><p>$$
+\begin{aligned}
+v &= \frac{V_f\widetilde{A} \widetilde{B} - V_b\widetilde{P} \widetilde{Q}}{1 + \widetilde{A} + \widetilde{B} + \widetilde{A} \widetilde{B} + \widetilde{P} + \widetilde{Q} + \widetilde{P} \widetilde{Q}}
+\end{aligned}
+$$</p><h3 id=ordered-bi-bi>Ordered Bi-Bi</h3><p>E &lt;=> EA &lt;=> EAB &lt;-> EPQ &lt;=> EQ &lt;=> E
+Cleland
+$$
+\begin{aligned}
+v &= \frac{V_f\widetilde{A} \widetilde{B} - V_b\widetilde{P} \widetilde{Q}}{1 + \widetilde{A} + \alpha_A\widetilde{B} + \alpha_Q\widetilde{P} +\widetilde{Q} + \alpha_Q\widetilde{A}\widetilde{P} + \alpha_A\widetilde{B}\widetilde{Q} + \widetilde{P} \widetilde{Q} + \widetilde{A} \widetilde{B} \widetilde{P} + \widetilde{B} \widetilde{P} \widetilde{Q} } \cr
+\widetilde{A} &= \frac{a}{K_i^A} \cr
+\widetilde{B} &= \frac{b}{K_m^B} \cr
+\widetilde{P} &= \frac{p}{K_i^P} \cr
+\widetilde{Q} &= \frac{q}{K_m^Q} \cr
+\alpha_A &= \frac{K_m^A}{K_i^A} \cr
+\alpha_Q &= \frac{K_m^Q}{K_i^Q} \cr
+\end{aligned}
+$$</p><h3 id=theorell-chance-mechanism>Theorell-Chance mechanism</h3><p>The Theorell-Chance mechanism is a simplified version of an ordered mechanism where the steady-state level of central complexes is very low. Therefore, the rate equatioin is identical with the ordered mechanism, except that the terms in <strong>ABP</strong> and <strong>BPQ</strong> are missing from the denominator.<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup></p><h3 id=ping-pong-bi-bi>Ping Pong Bi-Bi</h3><p>E &lt;=> EA &lt;=> FP &lt;=> F &lt;=> FB &lt;=> EQ &lt;=> E</p><p>$$
+\begin{aligned}
+v &= \frac{V_f\widetilde{A} \widetilde{B} - V_b\widetilde{P} \widetilde{Q}}{\widetilde{A} + \alpha_A\widetilde{B} + \widetilde{P} + \alpha_P\widetilde{Q} + \widetilde{A}\widetilde{B} + \widetilde{A}\widetilde{P} + \alpha_A\widetilde{B}\widetilde{Q} + \widetilde{P} \widetilde{Q} } \cr
+\widetilde{A} &= \frac{a}{K_i^A} \cr
+\widetilde{B} &= \frac{b}{K_m^B} \cr
+\widetilde{P} &= \frac{p}{K_i^P} \cr
+\widetilde{Q} &= \frac{q}{K_m^Q} \cr
+\alpha_A &= \frac{K_m^A}{K_i^A} \cr
+\alpha_P &= \frac{K_m^P}{K_i^P} \cr
+\end{aligned}
+$$</p><h2 id=allosteric-enzymes>Allosteric enzymes</h2><h3 id=hill-models>Hill models</h3><p>$$
+\begin{aligned}
+\frac{v}{V_{max}} &= \frac{\phi}{1 + \phi} \cr
+\phi &= (\frac{x}{k})^n
+\end{aligned}
+$$</p><h3 id=mwc-models>MWC models</h3><p>$$
+\begin{aligned}
+v &= \frac{nV_S(1 + \frac{V_T}{V_S}Q)}{1+Q} \cr
+Q &= L_0 \left( \frac{1 + Effector / K_{ef}^T}{1 + Effector / K_{ef}^R} \frac{E_R}{E_T} \right)^n
+\end{aligned}
+$$</p><h2 id=reference>Reference</h2><section class=footnotes role=doc-endnotes><hr><ol><li id=fn:1 role=doc-endnote><p>Leskovac, V., Trivić, S., Pericin, D., & Kandrac, J. (2006). Deriving the rate equations for product inhibition patterns in bisubstrate enzyme reactions. Journal of Enzyme Inhibition and Medicinal Chemistry, 21(6), 617–634. <a href="https://www.tandfonline.com/doi/full/10.1080/14756360600829381?scroll=top&needAccess=true&">https://www.tandfonline.com/doi/full/10.1080/14756360600829381?scroll=top&needAccess=true&</a> <a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li></ol></section></article><section class="article labels"><a class=category href=/stevengogogo/PaperNotes/categories/summary/>Summary</a></section><section class="article author"><p class=name>Shao-Ting Chiu</p><div class=details><a class=item href=https://github.com/stevengogogo target=_blank><span class="iconfont icon-github"></span>&nbsp;stevengogogo</a></div></section></div><div class="article bottom"><section class="article navigation"><p><a class=link href=/stevengogogo/PaperNotes/posts/sum-etc-models/><span class="iconfont icon-article"></span>Mathematical modeling of mitochondrial respiratory chain, a summary</a></p><p><a class=link href=/stevengogogo/PaperNotes/posts/sum-cac-models/><span class="iconfont icon-article"></span>Mathemetical modeling of the citric acid cycle (CAC), A summary</a></p></section></div></section><section id=footer><div class=footer-wrap><p class=copyright>Papers</p><p class=powerby><span>Powered&nbsp;by&nbsp;</span><a href=https://gohugo.io target=_blank>Hugo</a><span>&nbsp;&&nbsp;</span><a href=https://themes.gohugo.io/hugo-notepadium/ target=_blank>Notepadium</a></p></div></section><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css integrity=sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js integrity=sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz crossorigin=anonymous></script><script defer src=https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js integrity=sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI crossorigin=anonymous onload=renderMathInElement(document.body);></script></body></html>

@@ -1,0 +1,51 @@
+<!doctype html><html lang=en><meta charset=utf-8><meta name=generator content="Hugo 0.78.1"><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name=color-scheme content="light dark"><meta name=supported-color-schemes content="light dark"><title>Mathematical models of the MCU and NCLX: a summary&nbsp;&ndash;&nbsp;Papers</title><link rel=stylesheet href=/stevengogogo/PaperNotes/css/core.min.0e6154f1fe5441faaa4f418ca1a607b9f3edbad43b1ab8782737ee279ca2c5a48c8dbe23af3340af50c91a2558bc2b55.css integrity=sha384-DmFU8f5UQfqqT0GMoaYHufPtutQ7Grh4JzfuJ5yixaSMjb4jrzNAr1DJGiVYvCtV><meta name=twitter:card content="summary"><meta name=twitter:title content="Mathematical models of the MCU and NCLX: a summary"><body><section id=header><div class="header wrap"><span class="header left-side"><a class="site home" href=/stevengogogo/PaperNotes/><span class="site name">Papers</span></a></span>
+<span class="header right-side"><div class="nav wrap"><nav class=nav><a class="nav item" href=/stevengogogo/PaperNotes/categories/>Categories</a><a class="nav item" href=/stevengogogo/PaperNotes/tags/>Tags</a></nav></div></span></div><div class="site slogan"><span class=title>Collection of papers I read</span></div></section><section id=content><div class=article-container><section class="article header"><h1 class="article title">Mathematical models of the MCU and NCLX: a summary</h1><p class="article date">2020-10-23</p></section><article class="article markdown-body"><h2 id=magnus-and-keizer-model>Magnus and Keizer model</h2><ul><li>Originated from islet beta cell mitochodnrial calcium dynamics<code>[Magnus1997]</code></li><li>Used in Cortassa&rsquo;s ECME model<code>[Cortassa2003]</code> and Saa&rsquo;s minimal model<code>[Saa2013]</code></li></ul><p><strong>MCU</strong></p><ul><li>MWC<code>[Marzen2013]</code> model of calcium activation and voltage dependence with a bias of 91 mV.</li><li>Problems when mitochodnrial membrane potential lower than 91 mV</li></ul><p>$$
+\begin{aligned}
+J_{uni} &= X_{uni} \frac{\phi_t(1+\phi_t)^3}{(1 + \phi_t)^4 + \frac{L}{(1 + \phi_a)^{n_a}}} \frac{\delta}{1 - e^{-\delta}} \cr
+\delta &= \frac{2F(\Delta\Psi - 91mV)}{RT} \cr
+\phi_t &= [Ca^{2+}]_i / K_{trans} \cr
+\phi_a &= [Ca^{2+}]_i / K_{act} \cr
+\end{aligned}
+$$</p><p><strong>NCLX</strong>
+$$
+\begin{aligned}
+J_{NCLX} &= X_{NCLX} \cdot e^{\frac{0.5F(\Delta\Psi - 91mV)}{RT}}\cdot M([Na^+]_i, K_{Na})^n \cdot M([Ca^{2+}]_x, K_{Ca}) \cr
+M(x, k) &:= \frac{x}{x + k}
+\end{aligned}
+$$</p><h2 id=dash-and-bear-model>Dash and Bear model</h2><ul><li>Model fit is better for a variety of independent datasets</li><li>Physiologically and thermodynamically feasible</li></ul><p><strong>MCU</strong>
+Eyring&rsquo;s free-energy barrier theory <code>[Dash2009]</code>, using FMINCON optimizer in Matlab
+$$
+\begin{aligned}
+J_{uni} &= X_{uni} \frac{([Ca^{2+}]_e^2 \cdot e^{\Delta\Psi} - [Ca^{2+}]_x^2 \cdot e^{-\Delta\Psi})e^{(2\alpha_e + 2\beta_e-1)\Delta\Psi}}{K_x^2 + (\frac{K_x}{K_e})^2[Ca^{2+}]_e^2 \cdot e^{2\alpha_e\Delta\Psi} + [Ca^{2+}]_x^2\cdot e^{-2\alpha_x\Delta\Psi}} \cr
+X_{uni} &= E_T \cdot k_{out}^0 \cr
+\alpha_e &= 0 \cr
+1 &= \alpha_e + \alpha_x + \beta_e + \beta_x \cr
+1 &= \frac{k_{in}^0}{k_{out}^0} \frac{K_x^2}{K_e^2}
+\end{aligned}
+$$</p><p><strong>NCLX</strong>
+Sequential mode of transport with random order of ion binding<code>[Nguyen2007][Dash2008]</code>
+$$
+\begin{aligned}
+J_{NCLX} &= X_{NCLX} \frac{\delta \phi_{Na}^e \phi_{Ca}^x - \phi_{Na}^x \phi_{Ca}^e / \delta}{1 + \phi_{Na}^e + \phi_{Na}^x + \phi_{Ca}^e + \phi_{Ca}^x + \phi_{Na}^e\phi_{Ca}^x + \phi_{Na}^x\phi_{Ca}^e} \cr
+\phi_{Na}^e &= ([Na^+]_e / K_{Na})^3 \cr
+\phi_{Na}^x &= ([Na^+]_x / K_{Na})^3 \cr
+\phi_{Ca}^e &= [Ca^{2+}]_e / K_{Ca} \cr
+\phi_{Ca}^x &= [Ca^{2+}]_x / K_{Ca} \cr
+\delta &= e^{0.5\Delta\Psi F/RT}
+\end{aligned}
+$$</p><p>Calcium phosphate precipitation inhibits mitochondrial energy metabolism <sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup> sicne calcium is partly buffered by mitochondrial phosphate and calcium phosphate inhibits complex I.</p><h2 id=williams-review>William&rsquo;s review</h2><p>William, 2013 <code>[Williams2013]</code></p><h3 id=mitochondrial-calcium-uptake>Mitochondrial Calcium Uptake</h3><ul><li><p>Intermyofibrillar mitochondria (IFM) are in close proximity to the sarcoplasmic reticulum (SR)
+<img src=https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3696793/bin/pnas.1300410110fig01.jpg alt></p></li><li><p>Studies showed consistent flux once scaled properly. $ y = 0.67 x^{1.7} $
+<img src=https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3696793/bin/pnas.1300410110fig02.jpg alt></p></li><li><p>MCU flux is tiny (1%) comapred to SERCA pump / plasma membrane NCX (even in elevated intracellular calcium levels like 20 μM)</p></li><li><p>Not influencing intracellular ca dynamics, but affecting mitochondrial signalling</p></li></ul><h3 id=biophysical-properties-of-mcu-ca-uptake>Biophysical Properties of MCU Ca Uptake</h3><p><img src=https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3696793/bin/pnas.1300410110fig03.jpg alt></p><p>$$
+\begin{aligned}
+J_{mcu} &= P_O N_{mito} N_{mcu} \frac{i_{mcu}}{zFV_{myo}} \cr
+i_{mcu} &= g_{mcu} (\Delta\Psi - E_{Ca}) \cr
+P_O &= (P_{max} - P_{min}) (\frac{[Ca^{2+}]_i^\eta}{[Ca^{2+}]_i^\eta + K_{act}^\eta}) + P_{min} \cr
+N_{mito} &= 10000 \cr
+V_{myo} &= 18 \ pL \cr
+g_{mcu}N_{mcu} &= 1620 \frac{[Ca^{2+}]_i}{[Ca^{2+}]_i + 19 \ mM} \ pS \cr
+P_{max} &= 0.9 \cr
+p_{min} &= 0.13 \cr
+K_{act} &= 108 \ \mu M
+\end{aligned}
+$$</p><h3 id=other-reasons-for-non-linear-calcium-uptake>Other reasons for non-linear calcium uptake</h3><ul><li>mitochondrial NCX transporter (NCLX) ?</li><li>Leucine zipper-EF-hand containing transmembrane protein 1 (Letm1): Ca-H exchanger</li><li>Extramitochondrial Ca2+ buffers</li><li>Multiple $g_{mcu}$ levels.</li></ul><h2 id=mitochondrial-ca2-uptake-plasticity>Mitochondrial Ca2+ uptake plasticity</h2><p>More mitochondrial volume fraction, less MCU density
+<img src=https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3696793/bin/pnas.1300410110fig04.jpg alt></p><h2 id=future-challenges>Future Challenges</h2><ul><li><p>Reexamine Ca2+ influx and efflux from mitochondria in intact cells to provide quantitative information under both physiological and pathophysiological conditions.</p></li><li><p>Develop mitochondrial computational models of Ca2+ movement that take into account cellular Ca2+ signaling data, metabolic characteristics of the mitochondria, subcellular anatomy, and the nanoscopic mitochondrial organization, including cristae.</p></li><li><p>Use quantitative experimental finding to constrain the computational models and the model results to provoke new experiments.</p></li></ul><section class=footnotes role=doc-endnotes><hr><ol><li id=fn:1 role=doc-endnote><p>Malyala, S., Zhang, Y., Strubbe, J. O., & Bazil, J. N. (2019). Calcium phosphate precipitation inhibits mitochondrial energy metabolism. PLoS Computational Biology, 15(1), e1006719. <a href=http://www.ncbi.nlm.nih.gov/pmc/articles/PMC6336351>http://www.ncbi.nlm.nih.gov/pmc/articles/PMC6336351</a> <a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li></ol></section></article><section class="article labels"><a class=category href=/stevengogogo/PaperNotes/categories/summary/>Summary</a></section><section class="article author"><p class=name>Shao-Ting Chiu</p><div class=details><a class=item href=https://github.com/stevengogogo target=_blank><span class="iconfont icon-github"></span>&nbsp;stevengogogo</a></div></section></div><div class="article bottom"><section class="article navigation"><p><a class=link href=/stevengogogo/PaperNotes/posts/sum-mito-energy/><span class="iconfont icon-article"></span>Sum Mito Energy</a></p><p><a class=link href=/stevengogogo/PaperNotes/posts/sum-etc-models/><span class="iconfont icon-article"></span>Mathematical modeling of mitochondrial respiratory chain, a summary</a></p></section></div></section><section id=footer><div class=footer-wrap><p class=copyright>Papers</p><p class=powerby><span>Powered&nbsp;by&nbsp;</span><a href=https://gohugo.io target=_blank>Hugo</a><span>&nbsp;&&nbsp;</span><a href=https://themes.gohugo.io/hugo-notepadium/ target=_blank>Notepadium</a></p></div></section><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css integrity=sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js integrity=sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz crossorigin=anonymous></script><script defer src=https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js integrity=sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI crossorigin=anonymous onload=renderMathInElement(document.body);></script></body></html>
