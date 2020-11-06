@@ -1,57 +1,138 @@
 ---
-title: "Kussmaul 2006"
-date: 2020-10-23T00:16:29+08:00
-tags: []
+title: "Alberty 2006"
+date: 2020-10-22T17:13:03+08:00
+tags: ["thermodynamics", "equlibrium constant"]
 categories: []
 draft: false
 mathjax: true
 comments: false
 toc: true
 original: true
-description: "The mechanism of superoxide production by NADH:ubiquinone oxidoreductase (complex I) from bovine heart mitochondria"
+description: "Relations between biochemical thermodynamics and biochemical kinetics"
 ---
 
-[Sciwheel](https://sciwheel.com/work/#/items/6174702)
+[Sciwheel](https://sciwheel.com/work/#/items/5673496). [Article](https://www.sciencedirect.com/science/article/pii/S0301462206001839?via%3Dihub)[^Alberty2006]
 
-[Article](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1472492/)[^Kussmaul2006]
 <!--more-->
 
-## Introduction
-* mito-derived ROS from complex I and III
-* Most of these studies examined *intact mitochondria or submitochondrial particles*, in which it is difficult to correlate observations directly to complex I, or to define and control the conditions precisely
-* we propose a comprehensive kinetic and molecular mechanism for superoxide production by complex I
-## Results
-![](https://www.pnas.org/content/pnas/103/20/7607/F1.large.jpg?width=800&height=600&carousel=1 "Superoxide production by isolated complex I in the presence and absence of catalytic substrates and products and inhibitors")
-![](https://www.pnas.org/content/pnas/103/20/7607/F2.large.jpg?width=800&height=600&carousel=1 "The generation, interconversion, and detection of superoxide and hydrogen peroxide in complex I assays")
-![](https://www.pnas.org/content/pnas/103/20/7607/F3.large.jpg?width=800&height=600&carousel=1 "Competition assay showing that most of the electrons are conserved in superoxide formation, but that a small fraction of them form hydrogen peroxide directly")
-![tbl1](https://user-images.githubusercontent.com/40054455/86700289-939b6d00-c043-11ea-870e-21b60e185844.png)
-![tbl2](https://user-images.githubusercontent.com/40054455/86700298-94cc9a00-c043-11ea-923c-dbc603179537.png)
+## Introduction 
 
-### The Kinetic Mechanism of Superoxide Production
-![](https://www.pnas.org/content/pnas/103/20/7607/F4.large.jpg?width=800&height=600&carousel=1)
+* Close connection between the biochemical thermodynamics and biochemical kinetics of an enzyme-catalyzed reaction.
 
-* In air-saturated solution [O2 ≈250 μM (24)], complex I generates ≈40 nmol O2•− min−1 mg−1
-* the reaction between complex I and NADH, common to all of the assays, is >2,000 times faster than the reaction of reduced complex I with O2. SOX generation vs NADH is saturated quickly
-* Superoxide generation by complex I is strongly inhibited by NAD+ => a preequilibrium is established between NADH, NAD+, and different states of complex I
+* Difference between chemical & biochemocal thermodynamics is the specification of the **pH as an independent variable** in biochemical thermodynamics
 
-### The Molecular Mechanism of Superoxide Formation
-![](https://www.pnas.org/content/pnas/103/20/7607/F5.large.jpg?width=800&height=600&carousel=1 "The rate and potential of superoxide production by isolated complex I")
-![](https://www.pnas.org/content/pnas/103/20/7607/F6.large.jpg?width=800&height=600&carousel=1 "EPR spectra from complex I at high and low potential")
+* Gibbs energy: `G = H-TS`
+    * T : intensive variable (not changed by number of particles)
+    * S : extensive variable (changed by number of particles)
+    * @ equilibrium: G is @ minimum
 
-* In isolated complex I, superoxide is produced by the **flavin**, because it is not produced by any of the FeS clusters.
-*  the pH dependence of E1/2 is further confirmation for the participation of the **fully reduced flavin (FMNH-)** in superoxide production. Only reduced flavin in an empty active site reacts with O2
+* specification of pH as an independent variable in biochemical thermodynamics has another advantage: ease of binding polynomial (adenosine triphosphate can be treated as ATP, rather than the species ATP4−,HATP3−, and H2ATP2−)
+    * The apparent equilibrium constant K′ are also represented by mathematical functions of T, pH, and ionic strength
+    * The assumption is that the **pH is held constant** during the reaction,
+* The apparent equilibrium constant for the catalyzed reaction and the equilibrium composition do not depend in any way on the properties of the enzyme.
 
-![](https://www.pnas.org/content/pnas/103/20/7607/F7.large.jpg?width=800&height=600&carousel=1)
-* NAD+ and NADH determine the equilibrium concentration of the free reduced flavin
-* E_NAD+ is well established [−0.335 V, pH 7.5 (32)]. E_FMN has been measured by EPR (−0.375V, pH 7.5)
-* Predicted values of E1/2 for superoxide production (by using Eq. 3) are −0.44 V (33) and −0.38 V (34), close to the observed value of −0.36 V, *the strong disagreement between the two sets of values prevents any meaningful interpretation*
+* In biochemical thermodynamics it is more convenient to take the **apparent equilibrium constant** and transformed thermodynamic properties of reactants like ATP to be functions of ionic strength in addition to temperature and pH.
+
+* The **Haldane relations** connect chemical and biochemical thermodynamics at equilibrium.
+
+## Consideration of the effect of ionic strength on a simple mechanism
+
+### Simple mechanism
+$$
+E + S \rightleftharpoons EX \rightleftharpoons E + P
+$$
+
+the complete steady-state rate equation is
+$$
+\begin{aligned}
+v &= \frac{V_f \phi_S - V_r \phi_P}{1 + \phi_S + \phi_P} \cr
+\phi_S &= [S] / K_S  \cr
+\phi_P &= [P] / K_P  \cr
+\end{aligned}
+$$
+
+The Haldane relation:
+$$
+K_{eq}^{app} = \frac{[P]_{eq}}{[S]_{eq}} = \frac{V_fK_P}{V_rK_S} = \frac{k_{1}k_{2}}{k_{-1}k_{-2}}
+$$
+
+Apparrent equilibrium constants are functions of temperature, pH, and ionic strength.
+
+### Multistep mechanism
+$$
+E + S \rightleftharpoons ES \rightleftharpoons EP \rightleftharpoons E + P
+$$
+The Haldane relation:
+$$
+K_{eq}^{app} = \frac{[P]_{eq}}{[S]_{eq}} = K_1 K_2 K_3 = \frac{k_{1}k_{2}k_{3}}{k_{-1}k_{-2}k_{-3}}
+$$
+
+## Consideration of the effect of pH on a simple mechanism
+
+![fig1](https://user-images.githubusercontent.com/40054455/96852235-76bc6580-148b-11eb-81e4-f963439180c1.png)
+
+$$
+\begin{aligned}
+K_{1S} &= [S^-][H^+] / [HS] \cr
+K_{1H2S} &= [HES^-][H^+] / [H2ES] \cr
+K_{H2ES} &= [HS][HE] / [H2ES]  \cr
+\ [E]_t &= [E^-] + [HE] + [H2E^+] + [HES^-] + [H2ES] + [H3ES^+] \cr
+\ [S] &= [S^-] + [HS] + [H2S] \cr
+\end{aligned}
+$$
+
+Then:
+
+$$
+\begin{aligned}
+f_H([H^+], K_1, K_2) &:= 1 + K_{1} / [H+] + [H+] / K_{2}  \cr
+\ [E]_t &= [HE] / f_H([H^+], K_{1E}, K_{2E})+ [H_2ES]/ f_H([H+], K_{1ES}, K_{2ES}) \cr
+\ [E]_t &= f([H_2ES]) = ... \cr
+\ [S] &= [HS] / f_H([H^+], K_{1S}, K_{2S})
+\end{aligned}
+$$
+
+Finally:
+$$
+\begin{aligned}
+v &= V_{f} \frac{ [S] }{ [S] + K_{S} }  \cr
+V_{f} &= k_f [E]_{t} / f_{H} ([H^+], K_{1ES}, K_{2ES}) \cr
+K_{S} &= K_{H2ES} \cdot f_{H} ([H^+], K_{1E}, K_{2E}) \cdot f_{H}([H^+], K_{1S}, K_{2S}) / f_{H}([H^+], K_{1ES}, K_{2ES}) \cr
+\end{aligned}
+$$
+
+
+## pH-dependent reverse reaction
+
+![fig2](https://user-images.githubusercontent.com/40054455/96852433-b6834d00-148b-11eb-9706-bd36dd689473.png)
+* Using the King-Altman method, and Roberts has derived it using determinants.
+* Similar relations for P
+
+The Haldane relation:
+$$
+K_{eq}^{app} = \frac{[P]_{eq}}{[S]_{eq}} = \frac{V_f K_P}{V_r K_S} = \frac{k_fK_{H2EP}f_H([H^+], K_{1P}, K_{2P})}{k_rK_{H2ES}f_H([H^+], K_{1S}, K_{2S})}
+$$
+
+![fig3](https://user-images.githubusercontent.com/40054455/86533460-0ef60500-bf04-11ea-821c-37e3e2ea1fb9.png "pH on the rapid-equilibrium rate equation")
+
+## Expression of the apparent equilibrium constant for A + B = P + Q
+
+in terms of the rate constants of the steps in the forward and reverse direction
+
+![image](https://user-images.githubusercontent.com/40054455/96852586-e2063780-148b-11eb-8070-3c9a3e836814.png)
+
+![image](https://user-images.githubusercontent.com/40054455/96852624-f1858080-148b-11eb-9222-51bafd584ae3.png)
+
+4400 and 4700 respectively, in good agreement. They depend only on the properties of the reactants in the reaction above; we don't have to consider ionic strength.
 
 ## Discussion
-* Fully reduced flavin is a low potential electron donor capable of O2 reduction
-* formation of O2•− from O2 [E0′ = −0.33 V, 1 atm (1 atm = 101.3 kPa) O2 (24)] is less favorable thermodynamically than formation of H2O2 [E0′ = +0.28 V, pH 7 (24)].  why a fully reduced flavin should produce O2•−?
-    * O2 and O2•− probably bind only weakly and nonspecifically in complex I. H2O2 generation is too slow.
-* In complex I, the flavin radical is thermodynamically unstable (30), supporting redistribution, but it is not possible to identify a single FeS cluster to oxidize (or re-reduce) it
-* the rate-limiting step in superoxide production by isolated complex I is a bimolecular reaction between “competent” *enzyme and O2*.
+* The apparent equilibrium constant (K′) for an enzyme-catalyzed reaction can be calculated using parameters from the complete **rate equation** or **rate constants** for the steps in the mechanism
+    * knowledge of K ′ makes it possible to calculate the equilibrium composition of reactants for given initial concentrations of the reactants. Go left or go right.
+    * values of K′ can be used to calculate ΔrG′° using  -RTlnK′. partial derivatives of ΔrG′° can be used to calculate ΔrH′°, ΔrS′°.
+    * values of K′ or ΔrG′° can be used to calculate values of ΔfG° of species of a new reactant if the ΔfG° are known for species of all the other reactant
 
-## References
-[^Kussmaul2006]: Kussmaul L, Hirst J. The mechanism of superoxide production by NADH:ubiquinone oxidoreductase (complex I) from bovine heart mitochondria. Proc Natl Acad Sci U S A. 2006;103(20):7607-12.  [PMC1472492](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1472492/).
+* the most efficient way to store information on the thermodynamics of enzyme-catalyzed reactions is to store **standard Gibbs energies** of formation and **standard enthalpies** of formation of species
+
+* When **magnesium ions** or other divalent cations are present, their effects on the thermodynamics of enzyme-catalyzed reactions can be **handled in the same way as effects of hydrogen ions**. Just introduce p Mg as an independent variable of the transformed Gibbs energy in addition to pH.
+
+[^Alberty2006]: Alberty RA. Relations between biochemical thermodynamics and biochemical kinetics. Biophys. Chem. 2006;124(1):11-17. doi:10.1016/j.bpc.2006.05.024.
