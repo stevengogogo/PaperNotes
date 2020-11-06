@@ -1,0 +1,71 @@
+baseURL = "https://github.com/stevengogogo/PaperNotes"
+title = "Papers"
+theme = "hugo-notepadium"
+copyright = ""
+
+languageCode = "en"
+hasCJKLanguage = true
+
+enableRobotsTXT = false
+
+# Enable Disqus
+disqusShortname = ""
+
+# Google Analytics
+#googleAnalytics = "UA-123-45"
+
+[markup.highlight]
+codeFences = true
+noClasses = false
+
+[markup.goldmark.renderer]
+unsafe = true  # enable raw HTML in Markdown
+
+[params]
+style = "auto"  # default: auto. light: light theme, dark: dark theme, auto: based on system.
+dateFormat = ""  # if unset, default is "2006-01-02"
+logo = ""  # if you have a logo png
+slogan = "Collection of papers I read"
+license = ""  # CC License
+fullRss = false # Puts entire HTML post into rss 'description' tag. If unset, default is false.
+
+[params.comments]
+enable = false  # En/Disable comments globally, default: false. You can always enable comments on per page.
+
+[params.math]
+enable = true  # optional: true, false. Enable globally, default: false. You can always enable math on per page.
+use = "katex"  # option: "katex", "mathjax". default: "katex"
+
+[params.syntax]
+use = "none"  # builtin: "prismjs", "hljs". "none" means Chroma
+theme = "xcode"
+darkTheme = "xcode-dark"  # apply this theme in dark mode
+
+[params.share]
+enable = false
+addThisId = ""
+inlineToolId = ""
+
+[params.nav]
+showCategories = true       # /categories/
+showTags = true             # /tags/
+
+# custom navigation items
+
+# [[params.nav.custom]]
+# title = "About"
+# url = "/about"
+
+# [[params.nav.custom]]
+# title = "Hugo"
+# url = "https://gohugo.io/"
+
+[params.profile]
+  enable = true
+  avatar = ""
+  name = "Shao-Ting Chiu"
+  bio = ""  # support markdown syntax
+  twitter = ""  # https://twitter.com/XXX
+  github = "stevengogogo"  # https://github.com/XXX
+  docker = ""  # https://hub.docker.com/u/XXX
+  email = ""  # mailto:XXX@mail.com
